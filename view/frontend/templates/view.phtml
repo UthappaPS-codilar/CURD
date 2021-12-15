@@ -1,0 +1,42 @@
+<?php
+    /**
+     * @var \Codilar\Employee\Block\View $block
+     */
+    $employee = $block->getAllEmployee();
+?>
+<div class="employee-listing">
+    <h1><?php echo __('Employee') ?></h1>
+    <?php if (count($employee) > 0): ?>
+        <table>
+            <thead>
+            <tr>
+                <th><?php echo __('First Name') ?></th>
+                <th><?php echo __('Gender') ?></th>
+                <th><?php echo __('Current Designation') ?></th>
+                <th><?php echo __('Current Office') ?></th>
+                <th><?php echo __('Current address') ?></th>
+                <th><?php echo __('Permanent address') ?></th>
+                <th><?php echo __('Action') ?></th>
+
+            </tr>
+            <?php foreach ($block->getAllEmployee() as $employe): ?>
+                <tr>
+                    <td><?php echo  $employe->getFirstName() ?></td>
+                    <td><?php echo $employe->getGender() ?></td>
+                    <td><?php echo $employe->getCurrentDesignation() ?></td>
+                    <td><?php echo $employe->getCurrentOffice() ?></td>
+                    <td><?php echo $employe->getCurrentAddress() ?></td>
+                    <td><?php echo $employe->getPermanentAddress() ?></td>
+                    <td><a href="<?php echo $block->getDeleteUrl() ?>?ID=<?php echo  $employe->getEntityId() ?>" ><button>Delete</button></a>
+                        <a href="<?php echo $block->getUpdateUrl() ?>?ID=<?php echo  $employe->getEntityId() ?>" > <button>Update</button></a>
+                        <a href="<?php echo $block->getViewDataUrl() ?>?ID=<?php echo  $employe->getEntityId() ?>"  > <button>View</button></a>
+                    </td>
+                    <!--                    <td>--><?php //echo $brand->getIsActive() ? 'Yes': 'No' ?><!--</td>-->
+                </tr>
+            <?php endforeach; ?>
+            </thead>
+        </table>
+    <?php else: ?>
+        <h3>No Employee available</h3>
+    <?php endif; ?>
+    <a href="<?php echo $block->getFormUrl() ?>"><button>ADD NEW DETAILS</button></a>

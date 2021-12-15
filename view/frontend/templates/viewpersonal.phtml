@@ -1,0 +1,85 @@
+<?php
+    /**
+     * @var \Codilar\Employee\Block\View $block
+     */
+    $url= $block->getAddUrl();
+?>
+
+<form style="padding: 1rem; margin-top: 1rem; border: 1px solid silver" method="POST" action="<?php echo $block->getUpdatedataUrl() ?>" >
+    <?php foreach($block->getSelectedEmployee() as $UpdateDetails): ?>
+    <h3> Employee Details</h3>
+    <div>
+        <div>
+            <input readonly name="employeeId" type="hidden" value="<?php echo $UpdateDetails['entity_id']; ?>"/>
+        </div>
+
+        <div>
+            <label>First Name</label>
+            <input readonly name="first_name" type="text" value="<?php echo $UpdateDetails['first_name']; ?>"/>
+        </div>
+        <div>
+            <label>Middle Name</label>
+            <input readonly name="middle_name" type="text" value="<?php echo $UpdateDetails['middle_name']; ?>" />
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input readonly name="last_name" type="text" value="<?php echo $UpdateDetails['last_name']; ?>"/>
+        </div>
+        <div>
+            <label>D.O.B</label>
+            <input readonly name="DOB" type="date" value="<?php echo $UpdateDetails['dob']; ?>" />
+        </div>
+
+        <div>
+            <label>Gender</label>
+            <select name="gender">
+                <option value="<?php echo $UpdateDetails['gender']; ?>"><?php echo $UpdateDetails['gender']; ?></option>
+
+            </select>
+        </div>
+
+        <div>
+            <label>Martial Status</label>
+            <select name="martial_status">
+                <option value="<?php echo $UpdateDetails['martial_status']; ?>"><?php echo $UpdateDetails['martial_status']; ?></option>
+
+            </select>
+        </div>
+
+        <div>
+            <label>Identity Mark </label>
+            <input readonly name="identity_mark" type="text" value="<?php echo $UpdateDetails['identity_mark']; ?>"/>
+        </div>
+
+        <div>
+            <label>Blood Group</label>
+
+                <input readonly name="identity_mark" type="text" value="<?php echo $UpdateDetails['blood_group']; ?>"/>
+
+
+        </div>
+
+        <div>
+            <label>Permanent Address</label>
+            <textarea readonly name="permanent_address"><?php echo $UpdateDetails['permanent_address']; ?></textarea>
+        </div>
+
+        <label>Currently Working</label>
+            <input readonly name="is_active" type="text" value="<?php echo $UpdateDetails['currently_working'] ? 'Yes': 'No'; ?>">
+
+        <div>
+            <label>Current Designation</label>
+            <input readonly name="current_designation" type="text" value="<?php echo $UpdateDetails['current_designation']; ?>"/>
+        </div>
+        <div>
+            <label>Current Office</label>
+            <input readonly name="current_office" type="text" value="<?php echo $UpdateDetails['current_office']; ?>" />
+        </div>
+        <div>
+            <label>Current Address</label>
+            <textarea readonly name="current_address"><?php echo $UpdateDetails['current_address']; ?> </textarea>
+        </div>
+    </div>
+</form>
+    </div>
+<?php  endforeach; ?>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="codilar_employee" resource="default" engine="innodb" comment="Codilar Employee information is stored here">
+
+        <column xsi:type="smallint" name="entity_id" unsigned="false" nullable="false" identity="true"
+                comment="Employee ID"/>
+
+        <column xsi:type="varchar" name="first_name" nullable="false" length="255" comment="First Name"/>
+        <column xsi:type="varchar" name="middle_name" nullable="false" length="255" comment="Middle Name"/>
+        <column xsi:type="varchar" name="last_name" nullable="false" length="255" comment="Last Name"/>
+
+        <column xsi:type="date" name="dob" nullable="false"  comment="D O B"/>
+
+        <column xsi:type="varchar" name="guardian" nullable="false" length="255" comment="Guardian Name"/>
+
+        <column xsi:type="char" name="gender" nullable="false"  comment="Gender"/>
+        <column xsi:type="varchar" name="martial_status" nullable="false" length="255" comment="Martial Status"/>
+        <column xsi:type="varchar" name="identity_mark" nullable="false" length="255" comment="Identity Mark"/>
+
+        <column xsi:type="varchar" name="blood_group" nullable="false" length="255" comment="Blood Group"/>
+        <column xsi:type="varchar" name="permanent_address" nullable="false" length="255" comment="Permanent Address"/>
+
+        <column xsi:type="smallint" name="currently_working" unsigned="false" nullable="false" identity="false"
+                default="1" comment="Is Working "/>
+
+        <column xsi:type="mediumtext" name="current_designation" nullable="true" comment="Current Designation"/>
+        <column xsi:type="mediumtext" name="current_office" nullable="true" comment="Current Office Branch"/>
+        <column xsi:type="varchar" name="current_address" nullable="false" length="255" comment="Current Address"/>
+
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Modification Time"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>
